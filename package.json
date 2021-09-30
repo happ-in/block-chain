@@ -1,0 +1,27 @@
+{
+  "name": "block-chain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happ-in/block-chain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/happ-in/block-chain/issues"
+  },
+  "homepage": "https://github.com/happ-in/block-chain#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "2.2.0",
+    "truffle-hdwallet-provider": "1.0.6"
+  }
+}

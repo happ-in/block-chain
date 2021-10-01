@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/happ-in/block-chain#readme",
   "dependencies": {
-    "openzeppelin-solidity": "2.2.0",
+    "@truffle/hdwallet-provider": "^1.5.0",
+    "openzeppelin-solidity": "^2.2.0",
     "truffle-hdwallet-provider": "1.0.6"
   }
 }

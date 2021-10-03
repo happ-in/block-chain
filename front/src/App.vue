@@ -1,5 +1,6 @@
 <template>
   <div id="App">
+    <vue-metamask userMessage="msg" @onComplete="onComplete"> </vue-metamask>
     <div>내 지갑: <input type="text" v-model="myAddress" /></div>
     <div>누군가 지갑: <input type="text" v-model="otherAddress" /></div>
     <div>전송할 BLI: <input type="number" v-model="coin" />BLI</div>
@@ -8,32 +9,29 @@
 </template>
 
 <script>
-import Web3 from "web3";
+import VueMetamask from "vue-metamask";
+// import Web3 from "web3";
 
 export default {
   name: "App",
+  components: {
+    VueMetamask,
+  },
   data() {
     return {
-      myAddress: "0xF61bFD60cdC06b7995E224F295C399aA704B6f0b",
-      password: "qls34048977",
+      msg: "This is demo network",
+      myMetamask: "",
       otherAddress: "",
       coin: 0,
+      myAddress: "",
     };
   },
   methods: {
+    onComplete(data) {
+      this.myMetamask = data;
+    },
     sendBli() {
-      let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-      web3.eth.personal.unlockAccount(this.myAddress, this.password).then(async (unlocked) => {
-        if (unlocked) {
-          console.log("sending Transaction...");
-          let receipt = await web3.eth.sendTransaction({
-            from: this.myAddress,
-            to: this.otherAddress,
-            value: this.coin,
-          });
-          console.log(JSON.stringify(receipt));
-        }
-      });
+      this.myAddress = this.myMetamask.metaMaskAddress;
     },
   },
 };
